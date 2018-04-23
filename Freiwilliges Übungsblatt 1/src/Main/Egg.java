@@ -1,3 +1,4 @@
+package Main;
 import java.util.*;
 import java.time.LocalDate;
 
@@ -7,12 +8,13 @@ import java.time.LocalDate;
  *
  */
 public class Egg {
-	private int weight;
-	private Size eggsize;
-	private LocalDate prodDate, expiDate;
-	private boolean defect = false;
+	public int weight;
+	public Size eggsize;
+	public LocalDate prodDate, expiDate;
+	public boolean defect = false;
 	private int defectProb = 5;
 	Random rand = new Random();
+	
 
 	public Egg() { // standard constructor
 		weight = rand.nextInt(40) + 40; //Generation of random weight(between 40 and 80) 
@@ -20,13 +22,13 @@ public class Egg {
 		if (weight < 53) {
 			eggsize = Size.S;
 		}
-		if (weight > 53 && weight <= 62) {
+		else if (weight >= 53 && weight <= 62) {
 			eggsize = Size.M;
 		}
-		if (weight > 62 && weight <= 73) {
+		else if (weight > 62 && weight <= 73) {
 			eggsize = Size.L;
 		}
-		if (weight > 73) {
+		else if (weight > 73) {
 			eggsize = Size.XL;
 		}
 
@@ -43,7 +45,7 @@ public class Egg {
 		if (weight < 53) {
 			eggsize = Size.S;
 		}
-		if (weight > 53 && weight <= 62) {
+		if (weight >= 53 && weight <= 62) {
 			eggsize = Size.M;
 		}
 		if (weight > 62 && weight <= 73) {
@@ -76,7 +78,9 @@ public class Egg {
 	}
 
 	public Size getEggsize() {
+		
 		return eggsize;
+		
 	}
 
 	public LocalDate getProdDate() {
@@ -90,6 +94,7 @@ public class Egg {
 	public boolean getDefect() {
 		return defect;
 	}
+	
 
 	public void setDefect(boolean defect) {
 		if (defect == true) {

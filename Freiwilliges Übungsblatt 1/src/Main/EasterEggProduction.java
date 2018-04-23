@@ -1,7 +1,8 @@
+package Main;
 import java.io.*;
 public class EasterEggProduction {
 	
-	public static void main (String[]args) {
+	public static void main (String[]args) throws FileNotFoundException, IOException, FarmDeliveryQuantityException{
 		
 		ChickenFarm myChickenFarm = new ChickenFarm ();
 		EasterEggFactory myEasterEggFactory = new EasterEggFactory ();
@@ -55,11 +56,13 @@ public class EasterEggProduction {
 		EggFileConverter myETFC = new EggFileConverter();
 		
 		
-		myETFC.eggToFileConverter(myEasterEggFactory.getEasterEggBoxStack(),"testfile.txt");
+		myETFC.eggToFileConverter(myEasterEggFactory.getEasterEggBoxStack(),"hopefullySoon.txt");
 		System.out.println(myETFC.getEggText());
 		
 		
 		
+		myETFC.eggToFileConverter(myETFC.fileToEgg("eier10.txt"), "itworks.txt");	
+//		
 	}
 
 }

@@ -1,0 +1,13 @@
+/ChickenFarm.class
+/Colour.class
+/EasterEgg.class
+/EasterEggFactory.class
+/EasterEggProduction.class
+/Egg.class
+/EggColoredException.class
+/EggCrackException.class
+/EggFileConverter.class
+/EggNotBoiledException.class
+/FarmDeliveryQuantityException.class
+/RandTest.class
+/Size.class

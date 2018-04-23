@@ -1,3 +1,4 @@
+package Main;
 
 public class ChickenFarm {
 	private int request;
@@ -19,7 +20,7 @@ public class ChickenFarm {
 		this.maximumOrderSize=maximumOrderSize;
 	}
 	
-	private Egg[][] createEggBoxStack(int quanOfEgg) {
+	public Egg[][] createEggBoxStack(int quanOfEgg) {
 	int quanFullBox=quanOfEgg/25;
 	int quanLastBox=quanOfEgg%25;
 	if (quanLastBox==0) {

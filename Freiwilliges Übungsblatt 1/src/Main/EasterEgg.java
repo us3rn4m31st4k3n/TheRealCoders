@@ -1,3 +1,4 @@
+package Main;
 
 public class EasterEgg extends Egg { //subclass of egg with additional attributes and methods
 		
