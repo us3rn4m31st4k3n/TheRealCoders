@@ -5,6 +5,7 @@ import Main.Egg;
 public class OutputModul implements Runnable {
 	private CheckRingbuffer workingEggCheckRing;
 	private boolean flagOM=true;
+	private Egg[][] checkedEggsBox = new Egg [4][25];
 
 	/***
 	 * @brief constructor for OM

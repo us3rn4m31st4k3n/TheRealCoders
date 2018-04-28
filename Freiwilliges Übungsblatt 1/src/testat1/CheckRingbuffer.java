@@ -7,6 +7,7 @@ public class CheckRingbuffer {
 	int inputPointer=0;
 	int checkPointer=0;
 	int outputPointer=0;
+	int numOfEggsInRing;
 	// counter für Anzahl Eier im Buffer und Counter für zu prüfende Eier
 
 	/***
@@ -60,6 +61,37 @@ public class CheckRingbuffer {
 			return eggCheckRing[outputPointer%eggCheckRing.length];	//.... the Egg at that position is returned for later use
 		}else {
 			throw new BufferUnderflowException(1); 	// if checkRingBuffer is completely empty, this exception is thrown
+		}
+	}
+	
+	public boolean isUnderflown() {// helping methods to determine constantly whether the buffer is empty or not
+		for (int i=0; i< eggCheckRing.length-1; i++) {
+			if(eggCheckRing[i]!=null) {
+				numOfEggsInRing++;
+			}
+			
+		}
+		if(numOfEggsInRing == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean isOverflown() { // helping methods to determine constantly whether the buffer is full or not
+		
+		for (int i=0; i< eggCheckRing.length-1; i++) {
+			if(eggCheckRing[i]!=null) {
+				numOfEggsInRing++;
+			}
+			
+		}
+		if(numOfEggsInRing == eggCheckRing.length-1) {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 

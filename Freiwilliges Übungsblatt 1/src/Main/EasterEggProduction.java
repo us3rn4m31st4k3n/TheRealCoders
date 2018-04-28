@@ -61,7 +61,7 @@ public class EasterEggProduction {
 		
 		
 		
-		myETFC.eggToFileConverter(myETFC.fileToEgg("eier10.txt"), "itworks.txt");	
+		myETFC.eggToFileConverter(myETFC.fileToEgg("eier1.txt"), "itworks.txt");	
 //		
 	}
 

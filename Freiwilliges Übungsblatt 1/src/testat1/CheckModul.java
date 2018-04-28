@@ -1,7 +1,5 @@
 package testat1;
 
-import Main.Egg;
-
 public class CheckModul implements Runnable {
 	private CheckRingbuffer workingEggCheckRing;
 	private boolean flag=true;	//flag as an interrupt condition is initialized
@@ -22,6 +20,9 @@ public class CheckModul implements Runnable {
 				Thread.sleep(50);	// set sleep timer (given through task)
 			}catch(BufferUnderflowException bufe) { // custom exception which can be thrown in this case
 				bufe.toString();
+				while(workingEggCheckRing.isUnderflown()==true) {
+					Thread.yield();
+				}
 			}catch(InterruptedException inte) {
 				inte.printStackTrace();
 			}
