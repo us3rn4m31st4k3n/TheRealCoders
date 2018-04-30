@@ -56,7 +56,7 @@ public class OutputModul implements Runnable {
 				if(posOfEgg == 99) { // aka the last empty position in the one dimensional array
 					int eggCounter =0;	// a temporal variable to transform from one to two dimensional egg Arrays
 					
-					for(int i =0; i<checkedEggBox.length-1; i++) {
+					for(int i =0; i<checkedEggBox.length; i++) {
 						
 						for (int j =0; j<checkedEggBox[i].length; j++) {
 							checkedEggBox[i][j] = checkedEggs[eggCounter];	// standard procedure to transform Arrays between dimensions
@@ -88,10 +88,11 @@ public class OutputModul implements Runnable {
 								checkedEggBox[i][j] = checkedEggs[eggCounterIdle];
 								checkedEggs[eggCounterIdle] = null;
 								eggCounterIdle++;
-								posOfEgg=0;
+								
 								
 							}
 						}
+						posOfEgg=0;
 						}
 						else {
 							for(int i =0; i<((posOfEgg+1)/25)-1; i++) { // if the frequent occasion happens that it is not divided by 25 all except the
@@ -101,7 +102,7 @@ public class OutputModul implements Runnable {
 									checkedEggBox[i][j] = checkedEggs[eggCounterIdle];
 									checkedEggs[eggCounterIdle] = null;
 									eggCounterIdle++;
-									posOfEgg=0;
+									
 									// as mentioned above the EggArray is rest to be recycled and reused
 								}
 							}
@@ -110,7 +111,9 @@ public class OutputModul implements Runnable {
 								checkedEggBox[checkedEggs.length/25][quanLastBox] =checkedEggs[eggCounterIdle];
 								eggCounterIdle++;
 							}
+							posOfEgg=0;
 						}
+						
 					Thread.yield();	// not sure about the effectiveness of yield but its worth a try
 					
 					}

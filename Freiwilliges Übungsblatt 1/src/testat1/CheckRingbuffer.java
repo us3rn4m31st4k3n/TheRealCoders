@@ -7,8 +7,8 @@ public class CheckRingbuffer {
 	int inputPointer=0;
 	int checkPointer=0;
 	int outputPointer=0;
-	int numOfEggsInRing;
-	// counter für Anzahl Eier im Buffer und Counter für zu prüfende Eier
+	int numOfEggsInRing; // helping variable to track the amount of Eggs in the ring
+	
 
 	/***
 	 * @brief Enqueues the inputEgg into the checkRingBufffer
@@ -18,12 +18,12 @@ public class CheckRingbuffer {
 	public void enqueue(Egg inputEgg) throws BufferOverflowException {
 			
 			while(eggCheckRing[inputPointer%eggCheckRing.length]!=null && inputPointer>outputPointer) { // while the the inputPointer is  pointed on a taken place 
-																										//and it is behind the outputpointer, the inputpointer jumps to the next field
+																										//and it is behind the outputPointer, the inputPointer jumps to the next field
 				inputPointer++;
 			}
-			if(eggCheckRing[inputPointer%eggCheckRing.length]==null) {//if the inputpointer is on a empty field, the inputpointer puts an egg in this field
+			if(eggCheckRing[inputPointer%eggCheckRing.length]==null) {//if the inputPointer is on a empty field, the inputPointer puts an egg in this field
 				eggCheckRing[checkPointer]=inputEgg;
-			}else {//if the checkringbuffer is full, a BufferOverflowException is thrown
+			}else {//if the checkRingBuffer is full, a BufferOverflowException is thrown
 				throw new BufferOverflowException();
 			}
 			

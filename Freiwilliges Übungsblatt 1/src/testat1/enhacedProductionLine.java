@@ -17,16 +17,16 @@ public static void main (String[]args) throws FileNotFoundException, IOException
 	ChickenFarm myChickenFarm = new ChickenFarm ();
 	EasterEggFactory myEasterEggFactory = new EasterEggFactory ();
 	
-	myEasterEggFactory.productionImport(myChickenFarm.deliverEgg(120));
+	myEasterEggFactory.productionImport(myChickenFarm.deliverEgg(25));
 		for (int i=1; i<=10;i++) { // a loop which simply creates 10 files with the matching filenames to it
 		EggFileConverter myETFC = new EggFileConverter();	
 		
 		myETFC.eggToFileConverter(myEasterEggFactory.getEasterEggBoxStack(),"eier"+i+".txt"); // converting to file
-		System.out.println(myETFC.getEggText());	//printing out array
+//		System.out.println(myETFC.getEggText());	//printing out array
 		
-		if(myETFC.getEggText()!= null) {
-		myETFC.fileToEgg("eier"+i+".txt");	// and turning it back into an Array
-		}
+//		if(myETFC.getEggText()!= null) {
+//		myETFC.fileToEgg("eier"+i+".txt");	// and turning it back into an Array
+//		}
 		}
 	
 	

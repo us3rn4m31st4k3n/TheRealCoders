@@ -1,17 +1,18 @@
 package testat1;
 import java.io.*;
 import Main.Egg;
+import Main.EggFileConverter;
 import Main.FarmDeliveryQuantityException; 
 
 public class InputModul implements Runnable {
 	
 	private CheckRingbuffer workingEggCheckRing;
 	private boolean flagIM = true;
-	private Main.EggFileConverter parEFC = new Main.EggFileConverter();
+	private EggFileConverter parEFC = new EggFileConverter();
 	private int textFileNum = 1;
 	private int eggLength = 0;
 	private int currentEggPosition =0;
-	public Egg[] eggsFromFiles = new Egg[10000];
+	public Egg[] eggsFromFiles = new Egg[1000];
 	
 			
 	/***
@@ -30,27 +31,28 @@ public class InputModul implements Runnable {
 	}
 	
 	public void parseEggFiles() throws FileNotFoundException, IOException, FarmDeliveryQuantityException {
-		try {
-		while(parEFC.fileToEgg("eier" + textFileNum + ".txt")!=null) {	// the file has to be filled with something on order to be able to transform it
+		
+		
+		for (textFileNum = 1; textFileNum <=10; textFileNum++) {	// the file has to be filled with something on order to be able to transform it
 			
 			
-		for(int i=0; i<parEFC.fileToEgg("eier" + textFileNum + ".txt").length;i++) {
+		for(int i=0; i<parEFC.fileToEgg("E:\\PR2 Workspace\\PR2-L_FT1\\PR2-L_FT1\\Freiwilliges Übungsblatt 1/eier" + textFileNum + ".txt").length;i++) {
 			
-			for(int j=0;j<parEFC.fileToEgg("eier" + textFileNum + ".txt")[i].length;j++) { // he following is the method to transform the 
-				eggsFromFiles[i+eggLength] = parEFC.fileToEgg("eier" + textFileNum + ".txt")[i][j];	//two dimensional egg Arrays from the files
-				eggLength = eggLength + parEFC.fileToEgg("eier" + textFileNum + ".txt")[i].length;	// two a single one dimensional array which can be used later
+			for(int j=0;j<parEFC.fileToEgg("E:\\PR2 Workspace\\PR2-L_FT1\\PR2-L_FT1\\Freiwilliges Übungsblatt 1/eier" + textFileNum + ".txt")[i].length;j++) { // he following is the method to transform the 
+				eggsFromFiles[i+eggLength] = parEFC.fileToEgg("E:\\PR2 Workspace\\PR2-L_FT1\\PR2-L_FT1\\Freiwilliges Übungsblatt 1/eier" + textFileNum + ".txt")[i][j];	//two dimensional egg Arrays from the files
+				System.out.println(eggLength);
 			}
-			
+			eggLength = eggLength + parEFC.fileToEgg("E:\\PR2 Workspace\\PR2-L_FT1\\PR2-L_FT1\\Freiwilliges Übungsblatt 1/eier" + textFileNum + ".txt")[i].length;	// two a single one dimensional array which can be used later
+			System.out.println();
 		}
 		textFileNum ++;	// the number of the text (which follows a pattern) is increased 
+		System.out.println("Allooooooo");
 		}
-		}catch(FileNotFoundException e) {
-			System.out.println("No more files to parse");
-		}
+		
 		}
 // Two dimensional array has to be converted into a one dimensional array
 // The eggs of the first palette have their original indexes as their new indexes 
-// for the following palettes the index is (sum of)previouspalette(s).length + index on palette
+// for the following palettes the index is (sum of)previous hpalette(s).length + index on palette
 // for example the index of the first egg on the second palette would be previouspalette.length
 // = 25 + index on the current palette = 0 -> 25+0 =25 which is the index of the egg in the created
 // two dimensional array
@@ -65,9 +67,10 @@ public class InputModul implements Runnable {
 	public void run() {
 		
 		try {
+			System.out.println("Ellooo");
 			parseEggFiles();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Hmmmmmmm");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

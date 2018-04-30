@@ -15,6 +15,7 @@ public class CheckModul implements Runnable {
 	@Override
 	public void run() {	// overridden method which runs the method as long as no requestTermination is issued
 		while(flag) {
+			System.out.println("nope");
 			try {
 				workingEggCheckRing.checkEgg(); // implemented method which checks egg
 				Thread.sleep(50);	// set sleep timer (given through task)
